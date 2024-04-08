@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+  <h1>{{ title }}</h1>
+  <p>
+    Товар дня:
+    <a href="{% url 'catalog:product_detail' promo_product.id %}">
+      {{ promo_product.name }}
+    </a>
+  </p>
+  {% if promo_product.name == "Iron carrot" %}
+    <p>Железная морковка — хорошо для стальных зубов.</p>
+  {% else %}
+    <p>Вы все меня ещё не знаете, но вы меня узнаете!</p>
+  {% endif %}
+{% endblock %}
