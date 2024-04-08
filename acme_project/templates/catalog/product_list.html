@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+  <h1>{{ title }}</h1>
+  <ul>
+    {% for product in products %}
+      <li>
+        {{ product }}
+        <a href="{% url 'catalog:product_detail' pk=forloop.counter %}">Подробнее</a>
+      </li>
+    {% empty %}
+      <li>Товаров пока нет</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
